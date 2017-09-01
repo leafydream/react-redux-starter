@@ -22,9 +22,9 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['env', 'stage-0', 'react'],
+                        presets: ['es2015', 'stage-0', 'react'],
                         plugins: [
-                            ['import', [{ libraryName: 'rctui', style: 'css'}]]
+                            ['import', [{ libraryName: 'antd', style: 'css'}]]
                         ]
                     },
                 },
@@ -180,7 +180,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './src/static/index.html',
-            title: 'react example',
+            title: 'React Redux Starter',
             chunks: ['main', 'vendor'],
             minify: {
                 removeComments: true,

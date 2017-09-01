@@ -19,15 +19,22 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                use: {
+                use: [
+                  {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['env', 'stage-0', 'react'],
+                        presets: ['es2015', 'stage-0', 'react'],
                         plugins: [
                             ['import', [{ libraryName: 'antd', style: 'css'}]]
-                        ]
+                        ],
+                        env: {
+                          "development": {
+                            'presets': ["react-hmre"]
+                          }
+                        }
                     },
-                },
+                  }
+                ],
                 include: path.resolve(__dirname, 'src')
             },
             {
@@ -179,7 +186,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './src/static/index.html',
-            title: 'react example',
+            title: 'React Redux Starter',
             inject: 'body',
             chunks: ['main'],
         }),
@@ -200,3 +207,5 @@ module.exports = {
         })
     ]
 };
+
+console.log(process.env.NODE_ENV)
