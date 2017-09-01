@@ -174,8 +174,8 @@ module.exports = {
     },
     devServer: {
         hot: true,
-        compress: true,
         inline: true,
+        compress: true,
         stats: { colors: true },
         port: port
     },
@@ -208,4 +208,3 @@ module.exports = {
     ]
 };
 
-console.log(process.env.NODE_ENV)
